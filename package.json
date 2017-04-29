@@ -7,6 +7,7 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"@types/lodash": "^4.14.63",
 		"@types/react": "^15.0.23",
 		"@types/react-native": "^0.43.7",
 		"react": "16.0.0-alpha.6",
