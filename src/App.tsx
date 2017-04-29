@@ -18,10 +18,6 @@ class TodoList extends ComponentBase<{}, TodoListState> {
       }
     }
 
-    protected _componentDidRender() {
-      console.log('component rendered')
-    }
-
     render() {
         console.log('state: ', this.state)
         return (

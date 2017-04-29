@@ -2,9 +2,9 @@ import { StoreBase, AutoSubscribeStore, autoSubscribe } from 'resub';
 
 @AutoSubscribeStore
 class TodosStore extends StoreBase {
-    private _todos: String[] = ['hello','world'];
+    private _todos: string[] = ['hello','world'];
 
-    addTodo(todo: String) {
+    addTodo(todo: string) {
       this._todos = [...this._todos, todo]
       this.trigger();
     }
