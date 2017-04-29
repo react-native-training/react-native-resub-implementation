@@ -1,4 +1,9 @@
-import { StoreBase, AutoSubscribeStore, autoSubscribe } from 'resub'
+import { StoreBase, AutoSubscribeStore, autoSubscribeWithKey } from 'resub'
+
+const TriggerKeys = {
+    InputTextKey: 'input',
+    TodosChangedKey: 'todos'
+}
 
 @AutoSubscribeStore
 class TodosStore extends StoreBase {
@@ -7,22 +12,22 @@ class TodosStore extends StoreBase {
     
     updateTextInputValue(value: string) {
         this._textInputValue = value;
-        this.trigger()
+        this.trigger(TriggerKeys.InputTextKey)
     }
 
     addTodo() {
       if(this._textInputValue === '') return
       this._todos = [...this._todos, this._textInputValue]
       this._textInputValue = ''
-      this.trigger()
+      this.trigger(TriggerKeys.TodosChangedKey)
     }
 
-    @autoSubscribe
+    @autoSubscribeWithKey(TriggerKeys.TodosChangedKey)
     getTodos() {
         return this._todos
     }
 
-    @autoSubscribe
+    @autoSubscribeWithKey(TriggerKeys.InputTextKey)
     getTextInputValue() {
         return this._textInputValue
     }
