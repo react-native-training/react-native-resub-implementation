@@ -20,7 +20,7 @@ npm i or yarn
 tsc -w
 ```
 
-4. Write doe in src directory
+4. Write code in src directory
 
 5. Run project (code will be compiled into build directory - see tsconfig.json)
 
